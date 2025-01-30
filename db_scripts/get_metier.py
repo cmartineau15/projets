@@ -4,9 +4,12 @@ import pymongo
 import uuid
 from urllib.parse import urljoin
 
+# URI DE CONNECTION MONGODB
+mongo_uri = ""
+
 def scrap_metier():
     # Connection à la base de données
-    client = pymongo.MongoClient("mongodb+srv://mathilde:mathilde@chatbotai.wvgy9.mongodb.net/")
+    client = pymongo.MongoClient(mongo_uri)
     db = client["chatbot_data"]
     collection = db["metiers"]
     
