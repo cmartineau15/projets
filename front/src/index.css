@@ -1,0 +1,37 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@600,700,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-text-pink {
+  font-family: 'Clash Display', sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  @apply bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent;
+}
+
+.gradient-text-purple {
+  font-family: 'Clash Display', sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  @apply bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent;
+}
+
+@keyframes jumping-finger {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-jumping-finger {
+  animation: jumping-finger 1s infinite;
+}
