@@ -18,7 +18,7 @@ function App() {
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
                 <BriefcaseIcon className="h-8 w-8 text-blue-600" />
-                <span className="ml-2 text-xl font-bold text-gray-900">CareerMatch</span>
+                <Link to="/" className="ml-2 text-xl font-bold text-gray-900">CareerMatch</Link>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                 <a href="Home" className="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
@@ -187,25 +187,18 @@ function App() {
               <ul className="space-y-2">
                 <li><a href="About" className="text-base text-gray-500 hover:text-gray-900">À Propos</a></li>
                 <li><a href="Offres" className="text-base text-gray-500 hover:text-gray-900">Offres</a></li>
-                <li><a href="Contact" className="text-base text-gray-500 hover:text-gray-900">Contact</a></li>
+               
               </ul>
             </div>
             <div className="space-y-4">
               <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Mentions Légales</h3>
               <ul className="space-y-2">
                 <li><a href="PrivacyPolicy" className="text-base text-gray-500 hover:text-gray-900">Politique de Confidentialité</a></li>
-                <li><a href="#" className="text-base text-gray-500 hover:text-gray-900">Conditions d'Utilisation</a></li>
-                <li><a href="#" className="text-base text-gray-500 hover:text-gray-900">Politique des Cookies</a></li>
+                <li><a href="UserConditions" className="text-base text-gray-500 hover:text-gray-900">Conditions d'Utilisation</a></li>
+                <li><a href="CookiesPolicy" className="text-base text-gray-500 hover:text-gray-900">Politique des Cookies</a></li>
               </ul>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Ressources</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-base text-gray-500 hover:text-gray-900">Blog</a></li>
-                <li><a href="#" className="text-base text-gray-500 hover:text-gray-900">Centre d'Aide</a></li>
-                <li><a href="#" className="text-base text-gray-500 hover:text-gray-900">FAQ</a></li>
-              </ul>
-            </div>
+            
             <div className="space-y-4">
               <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Newsletter</h3>
               <p className="text-base text-gray-500">Abonnez-vous à notre newsletter pour recevoir des conseils de carrière et des mises à jour.</p>
@@ -217,7 +210,7 @@ function App() {
                 />
                 <button
                   type="submit"
-                  className="mt-3 w-full bg-blue-600 text-white px-4 py-2 rounded-full font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:flex-shrink-0"
+                  className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-full font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:flex-shrink-0"
                 >
                   S'abonner
                 </button>
