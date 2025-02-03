@@ -7,7 +7,7 @@ function Home() {
     <div className="min-h-screen flex flex-col font-inter">
       <div className="text-center py-12 bg-gradient-to-r from-pink-100 to-purple-100">
         <h1 className="font-clash font-bold text-6xl mb-3 bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-          MATHILDE BOT
+          ORIENTATION BOT
         </h1>
         <p className="text-gray-600 font-medium">Votre assistant intelligent</p>
       </div>
