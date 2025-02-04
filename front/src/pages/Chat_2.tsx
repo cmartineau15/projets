@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Send, X } from 'lucide-react';
+import { Send } from 'lucide-react';
+import { BriefcaseIcon, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function Chat2() {
   const [messages, setMessages] = useState<Array<{ type: 'user' | 'bot', content: string; animate?: boolean }>>([]);
@@ -23,9 +25,9 @@ function Chat2() {
     // Add welcome message with animation and personalized greeting
     const welcomeMessage = {
       type: 'bot' as const,
-      content: `# Bonjour **${firstName}** ! 🌟
+      content: `# Bonjour **${firstName}** ! 
 
-je suis la pour t'aider à rédiger ta lettre de motivation`,
+ 😀Je suis ton petit assistant(e) de lettres de motivation, et je vais t’aider à écrire un truc qui va faire fondre les recruteurs !`,
       animate: true
     };
     
@@ -79,19 +81,42 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
       }
     } catch (error) {
       console.error('Error:', error);
-      setMessages(prev => [...prev, { type: 'bot', content: "Désolé, une erreur s'est produite." }]);
+      setMessages(prev => [...prev, { type: 'bot', content: "Désolé, une erreur s'est produite.😐" }]);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
+    <div className="min-h-screen flex flex-col ">
+      {/* Navigation Bar */}
+      <nav className="relative bg-gradient-to-br from-pink-50 to-purple-50">
+                          
+                          <div className="relative z-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-center h-16">
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0 flex items-center">
+                                  <BriefcaseIcon className="h-8 w-8 text-blue-600" />
+                                  <Link to="/" className="ml-2 text-xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">CareerMatch</Link>
+                                </div>
+                                {/* <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                                  <Link to="/" className="text-gray-900 px-3 py-2 text-sm font-medium">Accueil</Link>
+                                  <Link to="/Offres" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Offres</Link>
+                                  <Link to="/About" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">À propos</Link>
+                                </div> */}
+                              </div>
+                              <div className="sm:hidden">
+                                
+                              </div>
+                            </div>
+                          </div>
+              </nav>
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 flex flex-col font-inter">
       {/* Name Modal */}
       {showNameModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in-up">
           <div className="bg-white rounded-2xl p-8 shadow-xl max-w-md w-full mx-4">
-            <h2 className="gradient-text-pink text-2xl font-clash font-semibold mb-6">Bienvenue ! 👋</h2>
+            <h2 className="gradient-text- text-2xl font-clash font-semibold mb-6">Bienvenue ! 👋</h2>
             <form onSubmit={handleNameSubmit} className="space-y-6">
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
@@ -209,7 +234,7 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
               <button
                 type="submit"
                 disabled={isLoading}
-                className="bg-gradient-to-r from-pink-400 to-purple-400 text-white rounded-xl px-6 py-3 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                className="bg-gradient-to-r from-pink-500 to-pink-300 text-white rounded-xl px-6 py-3 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-2000"
               >
                 <Send className="w-5 h-5" />
               </button>
@@ -218,6 +243,47 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
         </div>
       </div>
     </div>
+<footer className="bg-gray-50 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="space-y-4">
+
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Mentions Légales</h3>
+              <ul className="space-y-2">
+                <li><a href="PrivacyPolicy" className="text-base text-gray-500 hover:text-gray-900">Politique de Confidentialité</a></li>
+                <li><a href="UserConditions" className="text-base text-gray-500 hover:text-gray-900">Conditions d'Utilisation</a></li>
+                <li><a href="CookiesPolicy" className="text-base text-gray-500 hover:text-gray-900">Politique des Cookies</a></li>
+              </ul>
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Newsletter</h3>
+              <p className="text-base text-gray-500">Abonnez-vous à notre newsletter pour recevoir des conseils de carrière et des mises à jour.</p>
+              <form className="mt-4 sm:flex sm:max-w-md">
+                <input
+                  type="email"
+                  className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-full shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:placeholder-gray-400"
+                  placeholder="Entrez votre email"
+                />
+                <button
+                  type="submit"
+                  className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-full font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:flex-shrink-0"
+                >
+                  S'abonner
+                </button>
+              </form>
+            </div>
+          </div>
+          <div className="mt-8 pt-8">
+            <p className="text-base text-gray-400 text-center">
+              © {new Date().getFullYear()} CareerMatch. Tous droits réservés.
+            </p>
+          </div>
+        </div>
+      </footer>
+</div>
   );
 }
 

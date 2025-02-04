@@ -28,16 +28,9 @@ function Chat() {
       type: 'bot' as const,
       content: `# Bonjour ${firstName} ! 
 
-😀Je suis ravi de vous accompagner dans votre réflexion sur votre avenir professionnel. Je peux vous aider à :
+😀Je suis là pour vous aider à explorer des métiers, comprendre les formations nécessaires et analyser les opportunités d’emploi. Parlez-moi de vos passions ou questions, et je vous guiderai vers la voie professionnelle qui vous correspond ! 
 
-- Explorer différents secteurs d'activité
-- Découvrir des métiers qui correspondent à vos intérêts
-- Comprendre les formations nécessaires
-- Analyser les perspectives d'emploi
-
-N'hésitez pas à me poser vos questions sur les métiers qui vous intéressent ou à me parler de vos passions et compétences. Je suis là pour vous guider vers votre voie professionnelle idéale !
-
-Comment puis-je vous aider aujourd'hui ?`,
+Comment puis-je vous aider aujourd’hui ?`,
       animate: true
     };
     
@@ -91,7 +84,7 @@ Comment puis-je vous aider aujourd'hui ?`,
       }
     } catch (error) {
       console.error('Error:', error);
-      setMessages(prev => [...prev, { type: 'bot', content: "Désolé, une erreur s'est produite." }]);
+      setMessages(prev => [...prev, { type: 'bot', content: "Désolé, une erreur s'est produite.😐" }]);
     } finally {
       setIsLoading(false);
     }
@@ -100,30 +93,27 @@ Comment puis-je vous aider aujourd'hui ?`,
   return (
   <div className="min-h-screen flex flex-col ">
       {/* Navigation Bar */}
-      <nav className="relative bg-white shadow-sm">
-              <div className="absolute inset-0 bg-cover bg-center z-0" style={{ 
-                backgroundImage: 'url("https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80")',
-                opacity: '0.1'
-              }}></div>
-              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-16">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 flex items-center">
-                      <BriefcaseIcon className="h-8 w-8 text-blue-600" />
-                      <Link to="/" className="ml-2 text-xl font-bold text-gray-900">CareerMatch</Link>
-                    </div>
-                    <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                      <Link to="/" className="text-gray-900 px-3 py-2 text-sm font-medium">Accueil</Link>
-                      <Link to="/Offres" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Offres</Link>
-                      <Link to="/About" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">À propos</Link>
-                    </div>
-                  </div>
-                  <div className="sm:hidden">
-                    
-                  </div>
-                </div>
-              </div>
-            </nav>
+      <nav className="relative bg-gradient-to-br from-purple-50 to-purple-50">
+                          
+                          <div className="relative z-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-center h-16">
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0 flex items-center">
+                                  <BriefcaseIcon className="h-8 w-8 text-blue-600" />
+                                  <Link to="/" className="ml-2 text-xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">CareerMatch</Link>
+                                </div>
+                                {/* <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                                  <Link to="/" className="text-gray-900 px-3 py-2 text-sm font-medium">Accueil</Link>
+                                  <Link to="/Offres" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Offres</Link>
+                                  <Link to="/About" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">À propos</Link>
+                                </div> */}
+                              </div>
+                              <div className="sm:hidden">
+                                
+                              </div>
+                            </div>
+                          </div>
+              </nav>
             
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-purple-50 flex flex-col font-inter">
       {/* Name Modal */}
@@ -157,7 +147,7 @@ Comment puis-je vous aider aujourd'hui ?`,
         </div>
       )}
 
-      <div className="flex-1 max-w-3xl w-full mx-auto p-8 flex flex-col">
+      <div className="flex-1 max-w-4xl w-full mx-auto p-4 flex flex-col">
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl flex-1 flex flex-col overflow-hidden border border-blue-100">
           {/* Messages container with padding bottom to account for fixed input */}
           <div className="flex-1 overflow-y-auto p-6 pb-24 space-y-6">
@@ -260,18 +250,48 @@ Comment puis-je vous aider aujourd'hui ?`,
        
     </div>
     <footer className="bg-gray-50 border-t border-gray-200">
-                
-                  
-                  <div className="mt-8 border-t border-gray-200 pt-8">
-                    <p className="text-base text-gray-400 text-center">© {new Date().getFullYear()} CareerMatch. Tous droits réservés.</p>
-                  </div>
-               
+        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="space-y-4">
+
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Mentions Légales</h3>
+              <ul className="space-y-2">
+                <li><a href="PrivacyPolicy" className="text-base text-gray-500 hover:text-gray-900">Politique de Confidentialité</a></li>
+                <li><a href="UserConditions" className="text-base text-gray-500 hover:text-gray-900">Conditions d'Utilisation</a></li>
+                <li><a href="CookiesPolicy" className="text-base text-gray-500 hover:text-gray-900">Politique des Cookies</a></li>
+              </ul>
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Newsletter</h3>
+              <p className="text-base text-gray-500">Abonnez-vous à notre newsletter pour recevoir des conseils de carrière et des mises à jour.</p>
+              <form className="mt-4 sm:flex sm:max-w-md">
+                <input
+                  type="email"
+                  className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-full shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:placeholder-gray-400"
+                  placeholder="Entrez votre email"
+                />
+                <button
+                  type="submit"
+                  className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-full font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:flex-shrink-0"
+                >
+                  S'abonner
+                </button>
+              </form>
+            </div>
+          </div>
+          <div className="mt-8 pt-8">
+            <p className="text-base text-gray-400 text-center">
+              © {new Date().getFullYear()} CareerMatch. Tous droits réservés.
+            </p>
+          </div>
+        </div>
       </footer>
 
 </div>
-
   );
-
 
 }
 

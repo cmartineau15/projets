@@ -8,32 +8,27 @@ function UserConditions() {
   return (
     <div className="min-h-screen flex flex-col font-sans">
       {/* Navigation Bar */}
-      <nav className="relative bg-white shadow-sm">
-              <div className="absolute inset-0 bg-cover bg-center z-0" style={{ 
-                backgroundImage: 'url("https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80")',
-                opacity: '0.1'
-              }}></div>
-              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-16">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 flex items-center">
-                      <BriefcaseIcon className="h-8 w-8 text-blue-600" />
-                      <Link to="/" className="ml-2 text-xl font-bold text-gray-900">CareerMatch</Link>
+      <nav className="relative bg-gradient-to-br from-purple-50 to-purple-50">
+                    
+                    <div className="relative z-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                      <div className="flex justify-center h-16">
+                        <div className="flex items-center">
+                          <div className="flex-shrink-0 flex items-center">
+                            <BriefcaseIcon className="h-8 w-8 text-blue-600" />
+                            <Link to="/" className="ml-2 text-xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">CareerMatch</Link>
+                          </div>
+                          {/* <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                            <Link to="/" className="text-gray-900 px-3 py-2 text-sm font-medium">Accueil</Link>
+                            <Link to="/Offres" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Offres</Link>
+                            <Link to="/About" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">À propos</Link>
+                          </div> */}
+                        </div>
+                        <div className="sm:hidden">
+                          
+                        </div>
+                      </div>
                     </div>
-                    <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                      <Link to="/" className="text-gray-900 px-3 py-2 text-sm font-medium">Accueil</Link>
-                      <Link to="/Offres" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Offres</Link>
-                      <Link to="/About" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">À propos</Link>
-                    </div>
-                  </div>
-                  <div className="sm:hidden">
-                    <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-gray-400 hover:text-gray-500">
-                      {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </nav>
+                  </nav>
 
       {/* Main Content */}
       <main className="flex-1 p-8 bg-gray-100">
@@ -49,11 +44,10 @@ function UserConditions() {
           <h3 className="text-xl font-semibold text-gray-900 mt-6">2. Utilisation du Service</h3>
           <p className="text-gray-700">
           Vous vous engagez à utiliser le chatbot uniquement à des fins légales et conformément aux lois en vigueur. Vous êtes responsable de l'utilisation que vous faites du service et vous vous engagez à ne pas utiliser le chatbot pour :
-
-Diffuser des informations illégales ou nuisibles
-Provoquer des nuisances ou déranger d'autres utilisateurs
-Demander des conseils ou des informations pour des fins non professionnelles
-Utiliser le chatbot pour solliciter des offres commerciales sans autorisation
+          Diffuser des informations illégales ou nuisibles
+          Provoquer des nuisances ou déranger d'autres utilisateurs
+          Demander des conseils ou des informations pour des fins non professionnelles
+          Utiliser le chatbot pour solliciter des offres commerciales sans autorisation
           </p>
           <h3 className="text-xl font-semibold text-gray-900 mt-6">3. Conseils et Informations Fournis</h3>
           <p className="text-gray-700">
@@ -83,12 +77,9 @@ Utiliser le chatbot pour solliciter des offres commerciales sans autorisation
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Entreprise</h3>
-              <ul className="space-y-2">
-                <li><a href="About" className="text-base text-gray-500 hover:text-gray-900">À Propos</a></li>
-                <li><a href="Offres" className="text-base text-gray-500 hover:text-gray-900">Offres</a></li>
+              
                
-              </ul>
+  
             </div>
             <div className="space-y-4">
               <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Mentions Légales</h3>
@@ -117,7 +108,7 @@ Utiliser le chatbot pour solliciter des offres commerciales sans autorisation
               </form>
             </div>
           </div>
-          <div className="mt-8 border-t border-gray-200 pt-8">
+          <div className="mt-8  pt-8">
             <p className="text-base text-gray-400 text-center">
               © {new Date().getFullYear()} CareerMatch. Tous droits réservés.
             </p>
