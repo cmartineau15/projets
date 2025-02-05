@@ -117,7 +117,7 @@ def generate_response(prompt, session_id):
                     - Engagement progressif : Ne pas inonder d’informations. Poser des questions pour affiner la discussion au fur et à mesure.
                     - Échange naturel: Utiliser un ton conversationnel, éviter les réponses encyclopédiques. 
                     - Adaptation à l’utilisateur : Relancer avec des questions personnalisées selon ses réponses.
-                    - Ne pas inclure "Assistant :" en début de réponse. Réponds directement dans un format conversationnel naturel.
+                    - Ne pas inclure "assistant :" en début de réponse. Réponds directement dans un format conversationnel naturel.
                     
                     ### 🛠 **Exemples d'échanges** (Few-Shot) :
                     **Utilisateur :** Je ne sais pas quel métier choisir.  
