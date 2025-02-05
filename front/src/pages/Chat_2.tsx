@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Send, X } from 'lucide-react';
+import { Send } from 'lucide-react';
+import { BriefcaseIcon, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function Chat2() {
   const [messages, setMessages] = useState<Array<{ type: 'user' | 'bot', content: string; animate?: boolean }>>([]);
@@ -23,9 +25,11 @@ function Chat2() {
     // Add welcome message with animation and personalized greeting
     const welcomeMessage = {
       type: 'bot' as const,
-      content: `# Bonjour **${firstName}** ! 🌟
+      content: `# Bonjour ${firstName} ! 
 
-je suis la pour t'aider à rédiger ta lettre de motivation`,
+😀 Je suis là pour t'accompagner dans la rédaction de ta lettre de motivation, pour la rendre aussi percutante que possible. 
+Parle-moi de tes expériences, tes aspirations, et je te guiderai pour mettre en valeur ce qui te distingue !
+Comment puis-je t'aider aujourd’hui ?`,
       animate: true
     };
     
@@ -46,16 +50,16 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
     setIsLoading(true);
     streamBuffer.current = ''; // Reset stream buffer
 
-    try {
-      // Add the name context to every query
-      const queryWithName = `je m'appelle ${firstName}. ${userMessage}`;
-      const response = await fetch(`http://127.0.0.1:8000/generate?query=${encodeURIComponent(queryWithName)}`);
-      const reader = response.body?.getReader();
-      const decoder = new TextDecoder();
-      
-      if (!reader) {
-        throw new Error('No reader available');
-      }
+      try {
+  // Add the name context to every query
+  const queryWithName = `je m'appelle ${firstName}. ${userMessage}`;
+  const response = await fetch(`http://127.0.0.1:8000/generate_motivation?query=${encodeURIComponent(queryWithName)}&session_id=123`);
+  const reader = response.body?.getReader();
+  const decoder = new TextDecoder();
+  
+  if (!reader) {
+    throw new Error('No reader available');
+  }
 
       // Add an initial bot message that we'll update
       setMessages(prev => [...prev, { type: 'bot', content: '' }]);
@@ -86,12 +90,35 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 flex flex-col font-inter">
+  
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-purple-50 flex flex-col font-inter">
+  {/* Navigation Bar */}
+  <nav className="relative bg-gradient-to-br from-purple-50 to-purple-50">
+                          
+                          <div className="relative z-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-center h-16">
+                              <div className="flex items-center">
+                                <div className="flex-shrink-0 flex items-center">
+                                  {/* <BriefcaseIcon className="h-8 w-8 text-blue-600" /> */}
+                                  <Link to="/" className="ml-2 text-xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent chillax-font">✨ Lil'IA</Link>
+                                </div>
+                                {/* <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                                  <Link to="/" className="text-gray-900 px-3 py-2 text-sm font-medium">Accueil</Link>
+                                  <Link to="/Offres" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Offres</Link>
+                                  <Link to="/About" className="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">À propos</Link>
+                                </div> */}
+                              </div>
+                              <div className="sm:hidden">
+                                
+                              </div>
+                            </div>
+                          </div>
+              </nav>
       {/* Name Modal */}
       {showNameModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in-up">
           <div className="bg-white rounded-2xl p-8 shadow-xl max-w-md w-full mx-4">
-            <h2 className="gradient-text-pink text-2xl font-clash font-semibold mb-6">Bienvenue ! 👋</h2>
+            <h2 className="gradient-text- text-2xl  font-semibold mb-6">Bienvenue ! 👋</h2>
             <form onSubmit={handleNameSubmit} className="space-y-6">
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
@@ -102,14 +129,14 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
                   id="firstName"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="w-full rounded-xl border border-pink-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white"
+                  className="w-full rounded-xl border border-purple-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white"
                   placeholder="Votre prénom"
                   autoFocus
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-pink-400 to-purple-400 text-white rounded-xl px-6 py-3 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 transition-all duration-200 font-medium"
+                className="w-full bg-gradient-to-r from-purple-400 to-blue-400 text-white rounded-xl px-6 py-3 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 transition-all duration-200 font-medium"
               >
                 Commencer
               </button>
@@ -118,8 +145,8 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
         </div>
       )}
 
-      <div className="flex-1 max-w-4xl w-full mx-auto p-4 flex flex-col">
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl flex-1 flex flex-col overflow-hidden border border-pink-100">
+      <div className="flex-1 max-w-4xl w-full mx-auto p-4 flex-col">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl flex-1 flex flex-col overflow-hidden border border-purple-100">
           {/* Messages container with padding bottom to account for fixed input */}
           <div className="flex-1 overflow-y-auto p-6 pb-24 space-y-6">
             {messages.map((message, index) => (
@@ -132,25 +159,25 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
                 <div
                   className={`max-w-[80%] rounded-2xl p-4 shadow-sm ${
                     message.type === 'user'
-                      ? 'bg-gradient-to-r from-pink-400 to-purple-400 text-white'
-                      : 'bg-white border border-pink-100'
+                      ? 'bg-gradient-to-r from-purple-400 to-purple-400 text-white'
+                      : 'bg-white border border-purple-100'
                   }`}
                 >
                   {message.type === 'bot' ? (
-                    <div className="prose prose-pink max-w-none">
+                    <div className="prose prose-purple max-w-none">
                       <ReactMarkdown
                         components={{
                           h1: ({node, ...props}) => (
-                            <h1 {...props} className="gradient-text-pink text-3xl font-clash font-semibold mb-4" />
+                            <h1 {...props} className="gradient-text-purple text-2xl font-clash font-semibold mb-4" />
                           ),
                           h2: ({node, ...props}) => (
-                              <h1 {...props} className="gradient-text-pink text-2xl font-clash font-semibold mb-4" />
+                              <h1 {...props} className=" text-2xl font-clash font-semibold mb-4" />
                             ),
                           h3: ({ node, ...props }) => (
-                            <h3 {...props} className="gradient-text-pink text-xl font-clash font-semibold mb-3" />
+                            <h3 {...props} className=" text-xl font-clash font-semibold mb-3" />
                           ),
                           strong: ({node, ...props}) => (
-                            <strong {...props} className="gradient-text-pink font-semibold" />
+                            <strong {...props} className=" font-semibold" />
                           ),
                           p: ({node, ...props}) => (
                             <p {...props} className="text-gray-800 mb-4 leading-relaxed" />
@@ -164,11 +191,11 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
                           a: ({ node, ...props }) => (
                             <a 
                               {...props} 
-                              className="gradient-text-pink underline decoration-pink-500 hover:decoration-pink-700"
+                              className="gradient-text-purple underline decoration-purple-500 hover:decoration-purple-700"
                             />
                           ),
                           hr: () => (
-                            <hr className="border-0 h-1 bg-gradient-to-r from-pink-400 to-purple-400 my-6 w-full rounded-lg" />
+                            <hr className="border-0 h-1 bg-gradient-to-r from-purple-400 to-purple-400 my-6 w-full rounded-lg" />
                           ),
                         }}
                       >
@@ -183,9 +210,9 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white border border-pink-100 rounded-2xl p-4 shadow-sm">
+                <div className="bg-white border border-purple-100 rounded-2xl p-4 shadow-sm">
                   <div className="flex space-x-2">
-                    <div className="w-3 h-3 bg-pink-300 rounded-full animate-bounce" />
+                    <div className="w-3 h-3 bg-purple-300 rounded-full animate-bounce" />
                     <div className="w-3 h-3 bg-purple-300 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
                     <div className="w-3 h-3 bg-blue-300 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
                   </div>
@@ -196,20 +223,20 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
           </div>
 
           {/* Fixed input at bottom */}
-          <form onSubmit={handleSubmit} className="absolute bottom-0 left-0 right-0 p-4 border-t border-pink-100 bg-white/95 backdrop-blur-sm">
+          <form onSubmit={handleSubmit} className="absolute bottom-0 left-0 right-0 p-4 border-t border-purple-100 bg-white/95 backdrop-blur-sm">
             <div className="flex space-x-4 max-w-4xl mx-auto">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Posez votre question..."
-                className="flex-1 rounded-xl border border-pink-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white"
+                className="flex-1 rounded-xl border border-purple-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-white"
                 disabled={isLoading}
               />
               <button
                 type="submit"
                 disabled={isLoading}
-                className="bg-gradient-to-r from-pink-400 to-purple-400 text-white rounded-xl px-6 py-3 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                className="bg-gradient-to-r from-purple-600 to-purple-300 text-white rounded-xl px-6 py-3 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
               >
                 <Send className="w-5 h-5" />
               </button>
@@ -217,6 +244,46 @@ je suis la pour t'aider à rédiger ta lettre de motivation`,
           </form>
         </div>
       </div>
+<footer className="bg-gray-50  border-gray-200">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-5">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* <div className="space-y-4">
+
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Mentions Légales</h3>
+              <ul className="space-y-2">
+                <li><a href="PrivacyPolicy" className="text-base text-gray-500 hover:text-gray-900">Politique de Confidentialité</a></li>
+                <li><a href="UserConditions" className="text-base text-gray-500 hover:text-gray-900">Conditions d'Utilisation</a></li>
+                <li><a href="CookiesPolicy" className="text-base text-gray-500 hover:text-gray-900">Politique des Cookies</a></li>
+              </ul>
+            </div>
+            
+            <div className="space-y-4">
+              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Newsletter</h3>
+              <p className="text-base text-gray-500">Abonnez-vous à notre newsletter pour recevoir des conseils de carrière et des mises à jour.</p>
+              <form className="mt-4 sm:flex sm:max-w-md">
+                <input
+                  type="email"
+                  className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-full shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:placeholder-gray-400"
+                  placeholder="Entrez votre email"
+                />
+                <button
+                  type="submit"
+                  className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-full font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:flex-shrink-0"
+                >
+                  S'abonner
+                </button>
+              </form>
+            </div>*/}
+          </div> 
+          <div className="pt-1">
+            <p className="text-base text-gray-400 text-center">
+              © {new Date().getFullYear()} Lil'IA. Tous droits réservés.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -13,11 +13,11 @@ function App() {
       {/* Main Content */}
       <main>
         {/* Hero Section */}
-        <div className="text-center py-12 bg-gradient-to-r from-blue-100 to-purple-100">
-          <Link to='/'><h1 className=" font-bold text-6xl mb-3 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-          CareerMatch
+        <div className="text-center py-12 bg-gradient-to-r from-blue-50 to-purple-50">
+          <Link to='/'><h1 className="ml-2 text-6xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent chillax-font">
+          ✨Lil'IA 
           </h1></Link>
-          <p className="text-gray-600 font-medium">Trouvez votre emploi idéal</p>
+          <p className="text-gray-600 font-medium">Un guide intelligent pour ton avenir</p>
         </div>
 
         {/* Main Two-Column Layout */}
@@ -31,7 +31,7 @@ function App() {
               <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <Bot className="w-12 h-12 text-blue-500" />
               </div>
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-400 bg-clip-text text-transparent">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
               Conseil d'orientation
               </h2>
               <p className="text-gray-600 text-center max-w-md text-lg">
@@ -52,7 +52,7 @@ function App() {
               <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <FileText className="w-12 h-12 text-purple-500" />
               </div>
-              <h2 className="font-semibold text-4xl gradient-text-purple">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
                 Rédaction de lettre de motivation
               </h2>
               <p className="text-gray-600 text-center max-w-md text-lg">
@@ -107,7 +107,7 @@ function App() {
           </div>
           <div className="mt-8  pt-8">
             <p className="text-base text-gray-400 text-center">
-              © {new Date().getFullYear()} CareerMatch. Tous droits réservés.
+              © {new Date().getFullYear()} Lil'IA. Tous droits réservés.
             </p>
           </div>
         </div>

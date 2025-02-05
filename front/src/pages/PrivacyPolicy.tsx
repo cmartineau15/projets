@@ -14,8 +14,8 @@ function PrivacyPolicy() {
                       <div className="flex justify-center h-16">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 flex items-center">
-                            <BriefcaseIcon className="h-8 w-8 text-blue-600" />
-                            <Link to="/" className="ml-2 text-xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">CareerMatch</Link>
+                            {/* <BriefcaseIcon className="h-8 w-8 text-blue-600" /> */}
+                            <Link to="/" className="ml-2 text-xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent chillax-font">✨ Lil'IA</Link>
                           </div>
                           {/* <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                             <Link to="/" className="text-gray-900 px-3 py-2 text-sm font-medium">Accueil</Link>
@@ -35,7 +35,7 @@ function PrivacyPolicy() {
         <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
           <h1 className="text-3xl font-bold text-gray-900 mb-6">Politique de Confidentialité</h1>
           <p className="text-gray-700 mb-4">
-            Bienvenue sur CareerMatch. Votre confidentialité est importante pour nous. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles.
+            Bienvenue sur Lil'IA. Votre confidentialité est importante pour nous. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles.
           </p>
           <h2 className="text-xl font-semibold text-gray-900 mt-6">1. Collecte des informations</h2>
           <p className="text-gray-700">
@@ -86,7 +86,7 @@ function PrivacyPolicy() {
           </div>
           <div className="mt-8 pt-8">
             <p className="text-base text-gray-400 text-center">
-              © {new Date().getFullYear()} CareerMatch. Tous droits réservés.
+              © {new Date().getFullYear()} Lil'IA. Tous droits réservés.
             </p>
           </div>
         </div>
