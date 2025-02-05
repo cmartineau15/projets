@@ -9,6 +9,7 @@ function Chat() {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showNameModal, setShowNameModal] = useState(true);
+  const [session_id, setSession_id] = useState("00001111");
   const [firstName, setFirstName] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const streamBuffer = useRef('');
@@ -53,7 +54,7 @@ Comment puis-je t'aider aujourd’hui ?`,
     try {
       // Add the name context to every query
       const queryWithName = `je m'appelle ${firstName}. ${userMessage}`;
-      const response = await fetch(`http://127.0.0.1:8000/generate?query=${encodeURIComponent(queryWithName)}`);
+      const response = await fetch(`http://127.0.0.1:8000/generate?query=${encodeURIComponent(queryWithName)}&session_id=${session_id}`);
       const reader = response.body?.getReader();
       const decoder = new TextDecoder();
       
