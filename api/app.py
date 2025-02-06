@@ -43,11 +43,19 @@ app.add_middleware(
  
 # Mémorisation des conversations
 user_sessions = {}
+
+# Fonction pour afficher les collections utilisées
+def print_collections():
+    collections = chroma_client.list_collections()  # Liste les collections
+    print("\n===== Collections disponibles =====")
+    for collection_name in collections:
+        print(f"Collection: {collection_name}")
+    print("\n====================================\n")
  
 def retrieve_documents(query):
     results = collection.query(
         query_texts=[query],
-        n_results=20,
+        n_results=10,
         include=["metadatas", "documents"]
     )
    
@@ -211,6 +219,8 @@ def generate_response_motivation(prompt, session_id):
                    
                     **Message d’accueil (première interaction seulement) :**  
                     "Bienvenue ! Ensemble, créons une lettre de motivation percutante. Dis-moi pour quel poste tu postules et quelles sont tes expériences clés ! 🚀"
+
+ 
                 """
             },
             {
