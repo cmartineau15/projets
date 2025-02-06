@@ -15,7 +15,7 @@ function PrivacyPolicy() {
                         <div className="flex items-center">
                           <div className="flex-shrink-0 flex items-center">
                             {/* <BriefcaseIcon className="h-8 w-8 text-blue-600" /> */}
-                            <Link to="/" className="ml-2 text-xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent chillax-font">✨ Lil'IA</Link>
+                            <Link to="/" className="ml-2 text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent chillax-font">✨ Lil'IA</Link>
                           </div>
                           {/* <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                             <Link to="/" className="text-gray-900 px-3 py-2 text-sm font-medium">Accueil</Link>

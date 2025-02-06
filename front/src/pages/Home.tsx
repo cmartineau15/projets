@@ -14,7 +14,7 @@ function App() {
       <main>
         {/* Hero Section */}
         <div className="text-center py-12 bg-gradient-to-r from-blue-50 to-purple-50">
-          <Link to='/'><h1 className="ml-2 text-6xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent chillax-font">
+          <Link to='/'><h1 className="ml-2 text-6xl font-semibold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent chillax-font">
           ✨Lil'IA 
           </h1></Link>
           <p className="text-gray-600 font-medium">Un guide intelligent pour ton avenir</p>

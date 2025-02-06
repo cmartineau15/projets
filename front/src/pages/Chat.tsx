@@ -101,7 +101,7 @@ Comment puis-je t'aider aujourd’hui ?`,
                               <div className="flex items-center">
                                 <div className="flex-shrink-0 flex items-center">
                                   {/* <BriefcaseIcon className="h-8 w-8 text-blue-600" /> */}
-                                  <Link to="/" className="ml-2 text-xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent chillax-font">✨ Lil'IA</Link>
+                                  <Link to="/" className="ml-2 text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent chillax-font">✨ Lil'IA</Link>
                                 </div>
                                 {/* <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                                   <Link to="/" className="text-gray-900 px-3 py-2 text-sm font-medium">Accueil</Link>
@@ -172,13 +172,13 @@ Comment puis-je t'aider aujourd’hui ?`,
                             <h1 {...props} className="gradient-text-purple text-2xl font-clash font-semibold mb-4" />
                           ),
                           h2: ({node, ...props}) => (
-                              <h1 {...props} className=" text-2xl font-clash font-semibold mb-4" />
+                              <h1 {...props} className="gradient-text-purple text-2xl font-clash font-semibold mb-4" />
                             ),
                           h3: ({ node, ...props }) => (
-                            <h3 {...props} className=" text-xl font-clash font-semibold mb-3" />
+                            <h3 {...props} className="gradient-text-purple text-xl font-clash font-semibold mb-3" />
                           ),
                           strong: ({node, ...props}) => (
-                            <strong {...props} className=" font-semibold" />
+                            <strong {...props} className="gradient-text-purple font-semibold" />
                           ),
                           p: ({node, ...props}) => (
                             <p {...props} className="text-gray-800 mb-4 leading-relaxed" />
