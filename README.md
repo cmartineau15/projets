@@ -7,6 +7,6 @@
 ## run l'api
 **python3 -m uvicorn app:app --reload --port 8000**
 
-## run le front a écrire dans le terminal en bas sur vscode 
+## run le front 
 **npm install**
 **npm run dev**
